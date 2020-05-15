@@ -18,7 +18,6 @@ import java.util.List;
         String pathString = Invoer;                  //String bestaand uit A's en B's
 
         for (char ch : pathString.toCharArray()) {
-
             transistiesCases.add(ch);
             Node nieuweNode = currentNode.verwerkInvoer(Character.toString(ch));
 

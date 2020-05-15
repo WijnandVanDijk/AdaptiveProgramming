@@ -1,3 +1,6 @@
+// Met de hulp van video's en klasgenoten
+
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -26,7 +29,7 @@ public class Main {
         nodes.add(ns3);
 
         FSM fsm = new FSM(nodes);
-        fsm.run(ns0, "ABBA"); // Hier moet de invoer geplaatst worden
+        fsm.run(ns0, "ABABABABABBBBBBAAAAB"); // Hier moet de invoer geplaatst worden
 
 
 
