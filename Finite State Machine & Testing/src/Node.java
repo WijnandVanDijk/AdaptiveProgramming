@@ -6,8 +6,8 @@ public class Node {
     public int id;
     public Node nodeA;
     public Node nodeB;
-    public String exitA;
-    public String exitB;
+    public String StopA;
+    public String StopB;
 
     public Node(int id) {
         this.id = id;
@@ -22,20 +22,20 @@ public class Node {
 
     }
 
-    public String getExitA() {
-        return exitA;
+    public String getStopA() {
+        return StopA;
     }
 
-    public void setExitA(String exitA) {
-        this.exitA = exitA;
+    public void setStopA(String StopA) {
+        this.StopA = StopA;
     }
 
-    public String getExitB() {
-        return exitB;
+    public String getStopB() {
+        return StopB;
     }
 
-    public void setExitB(String exitB) {
-        this.exitB = exitB;
+    public void setStopB(String StopB) {
+        this.StopB = StopB;
     }
 
     public void setNodeA(Node n) {
@@ -59,8 +59,8 @@ public class Node {
     }
 
     public String endNode(String s){
-        if (Objects.equals(s, "A")){ return getExitA();}
-        else if (Objects.equals(s, "B")){ return getExitB();}
+        if (Objects.equals(s, "A")){ return getStopA();}
+        else if (Objects.equals(s, "B")){ return getStopB();}
         else {
             return null;
         }

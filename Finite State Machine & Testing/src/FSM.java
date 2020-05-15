@@ -25,8 +25,6 @@ import java.util.List;
             if (nieuweNode != null) {
                 currentNode = nieuweNode;
             } else {
-                System.out.println("end node");
-                System.out.println(currentNode.endNode(Character.toString(ch)));
                 break;
             }
             pathTakenThroughFSM.add(nieuweNode);

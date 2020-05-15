@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
 
@@ -25,9 +26,15 @@ public class Main {
         nodes.add(ns3);
 
         FSM fsm = new FSM(nodes);
-        fsm.run(ns0,"ABAABB");
+        fsm.run(ns0, "ABBA"); // Hier moet de invoer geplaatst worden
 
 
 
+
+        //Scanner Invoer = new Scanner(System.in);
+        //System.out.println("Vul een rij van A's en B's in: ");
+        // Invoer1 = Invoer.nextLine();
+        //System.out.println("Invoer: " + Invoer1);
+        //System.out.println("Uitkomst" + );
     }
 }
