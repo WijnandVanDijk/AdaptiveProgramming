@@ -1,4 +1,4 @@
-// hulp van richard
+// hulp van Klas
 
 import java.util.HashMap;
 import java.util.LinkedList;

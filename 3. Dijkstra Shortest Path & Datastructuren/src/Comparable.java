@@ -1,4 +1,4 @@
-// hulp van Richard
+// hulp van Klas
 
 import java.util.LinkedList;
 import java.util.List;

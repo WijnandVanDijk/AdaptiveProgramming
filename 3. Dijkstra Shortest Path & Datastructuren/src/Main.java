@@ -1,3 +1,6 @@
+// Meeste informatie heb ik van internet (niet de code)
+// met informatie bedoel ik dan de regels van java, opbouw etc.
+
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
@@ -120,7 +123,6 @@ public class Main {
         System.out.println(s12.toString());
         System.out.println(s13.toString());
 
-        //Toevoegen van stappen van node naar node
         nodeA.addStap(s1);
         nodeA.addStap(s2);
 

@@ -1,5 +1,4 @@
 public class Stap {
-    //In deze classe worden de waardens gedefineerd voor elke stap met, distance, typereis,price en tijd in minuten
     public Node n;
     public int distance;
     public Object typeReis;
