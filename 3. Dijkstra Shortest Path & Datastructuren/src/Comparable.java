@@ -1,3 +1,5 @@
+// hulp van Richard
+
 import java.util.LinkedList;
 import java.util.List;
 

@@ -144,7 +144,6 @@ public class Main {
 
         //nodeI.addStap(); I loopt dood
 
-        //Een niewe graph aanmaken
         Graph graph = new Graph();
 
         graph.addNode(nodeA);
@@ -157,13 +156,8 @@ public class Main {
         graph.addNode(nodeH);
         graph.addNode(nodeI);
 
-        //het aanmaken van een comparable class
         Comparable c1 = new Comparable();
 
-        //Het runnen van de comparable
         Output.add(c1.run(r1,graph));
-
-
-
     }
 }

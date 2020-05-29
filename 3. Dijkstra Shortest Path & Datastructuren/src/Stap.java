@@ -58,7 +58,7 @@ public class Stap {
     public String toString() {
         return  "" + n.getName() +
                 " distance = " + distance +
-                "            typeReis = " + getTypeReis() +
+                "            Vervoer(werkt niet) = " + getTypeReis() +
                 "            prijs = "+price +
                 "            Tijd in minuten = "+ tijdInMinuten;
     }

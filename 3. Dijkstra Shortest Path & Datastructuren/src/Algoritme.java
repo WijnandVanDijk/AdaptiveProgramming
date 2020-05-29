@@ -1,4 +1,6 @@
 //https://www.baeldung.com/java-dijkstra
+//https://nl.wikipedia.org/wiki/Kortstepad-algoritme
+//https://www.youtube.com/watch?v=gdmfOwyQlcI
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Set;
