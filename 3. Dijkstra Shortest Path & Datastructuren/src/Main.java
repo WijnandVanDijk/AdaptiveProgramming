@@ -3,7 +3,6 @@
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Main {
 
@@ -36,7 +35,7 @@ public class Main {
 
         Reis r1 = new Reis();
         r1.addNode(nodeA);
-        r1.addNode(nodeD);
+        r1.addNode(nodeH);
         /*
         if (Beginpunt.equals('A')) {
             r1.addNode(nodeA);}
