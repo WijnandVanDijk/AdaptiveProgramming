@@ -1,67 +1,41 @@
-import java.util.Objects;
+import java.util.Map;
+import java.util.HashMap;
 
 public class Node {
-    public int id;
-    public Node nodeA;
-    public Node nodeB;
-    public String StopA;
-    public String StopB;
+    private String name;
+    private Map<String, Node> textTransitions;
+    private Map<Double, Node> probabilityTransitions;
 
-    public Node(int id) {
-        this.id = id;
+    public Node(String name) {
+        this.name = name;
+        textTransitions = new HashMap<>();
+        probabilityTransitions = new HashMap<>();
     }
 
-    public Node verwerkInvoer(String s){
-        if (Objects.equals(s, "A")){ return getNodeA();}
-        else if (Objects.equals(s, "B")){ return getNodeB();}
-        else {
-            return null;
+    public void addTransition(String input, Node nextNode) {
+        textTransitions.put(input, nextNode);
+    }
+
+    public void addTransition(double probability, Node nextNode) {
+        probabilityTransitions.put(probability, nextNode);
+    }
+
+    public Node getTransition(String input) {
+        return textTransitions.get(input);
+    }
+
+    public Node getTransition(double probability) {
+        double cumulativeProbability = 0.0;
+        for (Map.Entry<Double, Node> entry : probabilityTransitions.entrySet()) {
+            cumulativeProbability += entry.getKey();
+            if (probability <= cumulativeProbability) {
+                return entry.getValue();
+            }
         }
-
+        return null;
     }
 
-    public String getStopA() {
-        return StopA;
-    }
-
-    public void setStopA(String StopA) {
-        this.StopA = StopA;
-    }
-
-    public String getStopB() {
-        return StopB;
-    }
-
-    public void setStopB(String StopB) {
-        this.StopB = StopB;
-    }
-
-    public void setNodeA(Node n) {
-        this.nodeA = n;
-    }
-
-    public void setNodeB(Node n) {
-        this.nodeB = n;
-    }
-
-    @Override
-    public String toString() {
-        return "s"+ id;
-    }
-    public Node getNodeA() {
-        return nodeA;
-    }
-
-    public Node getNodeB() {
-        return nodeB;
-    }
-
-    public String endNode(String s){
-        if (Objects.equals(s, "A")){ return getStopA();}
-        else if (Objects.equals(s, "B")){ return getStopB();}
-        else {
-            return null;
-        }
-
+    public String getName() {
+        return name;
     }
 }

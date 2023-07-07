@@ -1,36 +1,62 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.Random;
 
+public class FSM {
+    private Map<String, Node> nodes;
+    private Node startNode;
+    private Node currentNode;
+    private Random random;
 
-    public class FSM {
-        private List<Node> nodes = new ArrayList<Node>();
-        private List<Node> pathTakenThroughFSM = new ArrayList<Node>();
-        private List<Character> transistiesCases = new ArrayList<Character>();
+    public FSM() {
+        nodes = new HashMap<>();
+        random = new Random();
+    }
 
-
-        public FSM(List<Node> nodes) {
-            this.nodes = nodes;
+    public void addTextTransition(String from, String to, String input) {
+        if (nodes.containsKey(from) && nodes.containsKey(to)) {
+            Node fromNode = nodes.get(from);
+            Node toNode = nodes.get(to);
+            fromNode.addTransition(input, toNode);
         }
+    }
 
-    public void run(Node startNode, String Invoer) {
-        Node currentNode = startNode;
-        pathTakenThroughFSM.add(currentNode);
-        String pathString = Invoer;                  //String bestaand uit A's en B's
+    public void addProbabilityTransition(String from, String to, double probability) {
+        if (nodes.containsKey(from) && nodes.containsKey(to)) {
+            Node fromNode = nodes.get(from);
+            Node toNode = nodes.get(to);
+            fromNode.addTransition(probability, toNode);
+        }
+    }
 
-        for (char ch : pathString.toCharArray()) {
-            transistiesCases.add(ch);
-            Node nieuweNode = currentNode.verwerkInvoer(Character.toString(ch));
-
-            if (nieuweNode != null) {
-                currentNode = nieuweNode;
-            } else {
-                break;
+    public void processTextInput(String input) {
+        if (currentNode != null) {
+            Node nextNode = currentNode.getTransition(input);
+            if (nextNode != null) {
+                currentNode = nextNode;
             }
-            pathTakenThroughFSM.add(nieuweNode);
-
         }
-        System.out.println("Nodes: " + pathTakenThroughFSM);
-        System.out.println("Invoer: "+ transistiesCases);
+    }
+
+    public void processProbabilityInput() {
+        if (currentNode != null) {
+            Node nextNode = currentNode.getTransition(random.nextDouble());
+            if (nextNode != null) {
+                currentNode = nextNode;
+            }
+        }
+    }
+
+    public String getCurrentState() {
+        return (currentNode != null) ? currentNode.getName() : null;
+    }
+
+    public void addNode(String name) {
+        Node node = new Node(name);
+        nodes.put(name, node);
+        if (startNode == null) {
+            startNode = node;
+            currentNode = node;
+        }
     }
 }
-

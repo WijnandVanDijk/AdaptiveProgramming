@@ -1,43 +1,48 @@
-// Met de hulp van video's en klasgenoten
-
-
-import java.util.ArrayList;
-import java.util.Scanner;
-
 public class Main {
-
     public static void main(String[] args) {
+        FSM fsm = new FSM();
+        fsm.addNode("A");
+        fsm.addNode("B");
+        fsm.addNode("C");
+        fsm.addNode("D");
+        fsm.addNode("E");
+        fsm.addNode("F");
 
-        Node ns0 = new Node(0);
-        Node ns1 = new Node(1);
-        Node ns2 = new Node(2);
-        Node ns3 = new Node(3);
+        fsm.addTextTransition("A", "B", "1");
+        fsm.addTextTransition("B", "C", "0");
+        fsm.addTextTransition("C", "D", "1");
+        fsm.addTextTransition("D", "A", "0");
+        fsm.addTextTransition("D", "E", "1");
+        fsm.addTextTransition("E", "F", "0");
+        fsm.addTextTransition("F", "A", "1");
 
-        ns0.setNodeA(ns2);
-        ns0.setNodeB(ns1);
-        ns1.setNodeA(ns1);
-        ns1.setNodeB(ns2);
-        ns2.setNodeB(ns3);
+        fsm.addProbabilityTransition("A", "B", 0.5);
+        fsm.addProbabilityTransition("A", "C", 0.5);
+        fsm.addProbabilityTransition("B", "C", 0.7);
+        fsm.addProbabilityTransition("B", "D", 0.3);
+        fsm.addProbabilityTransition("C", "A", 0.4);
+        fsm.addProbabilityTransition("C", "B", 0.6);
+        fsm.addProbabilityTransition("D", "A", 1.0);
 
-        ns3.setNodeA(ns3);
-        ns3.setNodeB(ns0);
+        fsm.processTextInput("1");
+        System.out.println("Current State: " + fsm.getCurrentState());
 
-        ArrayList<Node> nodes= new ArrayList<>();
-        nodes.add(ns0);
-        nodes.add(ns1);
-        nodes.add(ns2);
-        nodes.add(ns3);
+        fsm.processProbabilityInput();
+        System.out.println("Current State: " + fsm.getCurrentState());
 
-        FSM fsm = new FSM(nodes);
-        fsm.run(ns0, "ABABABABABBBBBBAAAAB"); // Hier moet de invoer geplaatst worden
+        fsm.processTextInput("0");
+        System.out.println("Current State: " + fsm.getCurrentState());
 
+        fsm.processProbabilityInput();
+        System.out.println("Current State: " + fsm.getCurrentState());
 
+        fsm.processTextInput("1");
+        System.out.println("Current State: " + fsm.getCurrentState());
 
+        fsm.processProbabilityInput();
+        System.out.println("Current State: " + fsm.getCurrentState());
 
-        //Scanner Invoer = new Scanner(System.in);
-        //System.out.println("Vul een rij van A's en B's in: ");
-        // Invoer1 = Invoer.nextLine();
-        //System.out.println("Invoer: " + Invoer1);
-        //System.out.println("Uitkomst" + );
+        fsm.processTextInput("0");
+        System.out.println("Current State: " + fsm.getCurrentState());
     }
 }
